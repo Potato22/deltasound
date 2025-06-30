@@ -20,7 +20,6 @@ export function typeWriter(
     let i = 0;
     const targetElement = document.getElementById(elementId) as HTMLElement;
     targetElement.innerHTML = '';
-    targetElement.style.whiteSpace = 'pre-wrap';
 
     console.log(soundFile)
     const uploadedSound = new Howl({

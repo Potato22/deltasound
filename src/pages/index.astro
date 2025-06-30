@@ -12,13 +12,15 @@
   </head>
   <body>
 	  <textarea id="inputDialog" style="width: 500px ;height: 200px;">
-  Lights, Camera, Action!                         
-  
-  this Lights, Camera, Action! is pissing me off
-	 im the original
-							  starwalker
-  
-	  </textarea>
+* Hi                    
+* Have fun.                      
+
+(Add more spaces to add delay between words.)            
+(This is only to generate "almost" accurate sound to Undertale or Deltarune dialog sounds and **does not** account for visually correct text layout.)               
+
+(The sounds are happening real time, if you have to record the sounds, use your own recording software, OBS, SHAREX, what not.)      
+(I am scared of web FFMPEG.)
+    </textarea>
 	  <br />
     <input type="file" name="custSound" id="uploadedSound" />
 	<button name="clearFile" id="clear">Clear File</button>
@@ -26,7 +28,7 @@
     <input type="number" name="speed" id="inputSpeed" value="40" />
 	<br />
     <div class="playButton">Play</div>
-    <div id="j" style="max-width: 400px;">???</div>
+    <div id="j">...</div>
   </body>
 </html>
 
@@ -77,10 +79,16 @@
 </script>
 
 <style lang="scss">
+
+  @font-face {
+    font-family: "Determination Mono Web";
+    src: url("/src/DeterminationMonoWebRegular-Z5oq.ttf") format("truetype");
+  }
   body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+    padding: 1em;
   }
 
   .playButton {
@@ -96,5 +104,15 @@
     &:hover {
       background-color: #45a049;
     }
+  }
+
+  #j {
+    font-family: "Determination Mono Web", monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    word-break: break-all; /* Allow long words to break */
+    max-width: 100%; /* Limit width for better readability */
+    margin-top: 10px;
   }
 </style>
