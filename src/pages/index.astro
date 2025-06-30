@@ -3,14 +3,98 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Scuffed UT/DR dialog sound generation</title>
+  </head>
+  <body>
+	  <textarea id="inputDialog" style="width: 500px ;height: 200px;">
+  Lights, Camera, Action!                         
+  
+  this Lights, Camera, Action! is pissing me off
+	 im the original
+							  starwalker
+  
+	  </textarea>
+	  <br />
+    <input type="file" name="custSound" id="uploadedSound" />
+	<button name="clearFile" id="clear">Clear File</button>
+	<div>speed (ms):</div>
+    <input type="number" name="speed" id="inputSpeed" value="40" />
+	<br />
+    <div class="playButton">Play</div>
+    <div id="j" style="max-width: 400px;">???</div>
+  </body>
 </html>
+
+<script>
+  import { typeWriter } from "../components/monolith";
+  //get text area data and parse it to typeWriter();
+  const textArea = document.getElementById(
+    "inputDialog"
+  ) as HTMLTextAreaElement | null;
+  const playButton = document.querySelector(".playButton");
+  const clearButton = document.getElementById("clear");
+
+  clearButton?.addEventListener("click", () => {
+	const soundUploader = document.getElementById(
+	  "uploadedSound"
+	) as HTMLInputElement;
+	soundUploader.value = "";
+  });
+
+  playButton?.addEventListener("click", () => {
+    const text: string | null = textArea?.value || "?";
+    const speedInput = document.getElementById(
+      "inputSpeed"
+    ) as HTMLInputElement;
+    const soundUploader = document.getElementById(
+      "uploadedSound"
+    ) as HTMLInputElement;
+    const soundFile =
+      soundUploader.files && soundUploader.files[0]
+        ? soundUploader.files[0]
+        : null;
+
+    if (soundFile) {
+      // Extract file extension for Howler's format property
+      const ext = soundFile.name.split(".").pop()?.toLowerCase() || "";
+      typeWriter(
+        "j",
+        text,
+        Number(speedInput.value),
+        true,
+        URL.createObjectURL(soundFile),
+        ext ? [ext] : undefined // pass format array if extension exists
+      );
+    } else {
+      typeWriter("j", text, Number(speedInput.value), false);
+    }
+  });
+</script>
+
+<style lang="scss">
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .playButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+</style>
