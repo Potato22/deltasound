@@ -42,6 +42,7 @@ export function typeWriter(
             }
 
         } else {
+            sound.stop();
             sound.play();
         }
     }
