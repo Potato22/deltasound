@@ -11,7 +11,7 @@
     <title>Scuffed UT/DR dialog sound generation</title>
   </head>
   <body>
-	  <textarea id="inputDialog" style="width: 500px ;height: 200px;">
+	  <textarea id="inputDialog">
 * Hi                    
 * Have fun.                      
 
@@ -89,6 +89,16 @@
     margin: 0;
     padding: 0;
     padding: 1em;
+    background: black;
+  }
+
+  #inputDialog {
+    width: 500px;
+    height: 200px;
+    font-family: monospace;
+    max-width: 100%; /* Limit width for better readability */
+    background: black;
+    color: white;
   }
 
   .playButton {
@@ -114,5 +124,6 @@
     word-break: break-all; /* Allow long words to break */
     max-width: 100%; /* Limit width for better readability */
     margin-top: 10px;
+    color: white;
   }
 </style>
