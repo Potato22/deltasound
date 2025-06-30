@@ -53,7 +53,7 @@ export function typeWriter(
             targetElement.innerHTML += char;
             i++;
 
-            if (!/\s/.test(char)) {
+            if ((!/\s/.test(char)) || char === "*") {
                 soundBox();
             }
             // Store the timeout ID so it can be cleared if needed
