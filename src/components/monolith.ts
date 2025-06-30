@@ -1,7 +1,7 @@
 import { Howl, Howler } from 'howler';
 
 const sound = new Howl({
-    src: ['src/defaultSounds/snd_txt1.mp3'],
+    src: ['/deltasound/defaultSounds/snd_txt1.mp3'],
     preload: true,
     volume: 0.8,
 });
@@ -43,7 +43,6 @@ export function typeWriter(
             }
 
         } else {
-            sound.stop();
             sound.play();
         }
     }
