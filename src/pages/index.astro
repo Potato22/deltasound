@@ -15,6 +15,11 @@
 * Hi                    
 * Have fun.                      
 
+(Add your own sound "sprite" into the upload button.)            
+(You have to trim the sounds yourself.)            
+(Otherwise, well ...)            
+(it'll work still. Just funny.)            
+
 (Add more spaces to add delay between words.)            
 (This is only to generate "almost" accurate sound to Undertale or Deltarune dialog sounds and **does not** account for visually correct text layout.)               
 
@@ -24,7 +29,7 @@
 	  <br />
     <input type="file" name="custSound" id="uploadedSound" />
 	<button name="clearFile" id="clear">Clear File</button>
-	<div>delay on each character (ms):</div>
+	<div class="divObjectWhoCares">delay on each character (ms):</div>
     <input type="number" name="speed" id="inputSpeed" value="40" />
 	<br />
     <div class="playButton">Play</div>
@@ -97,11 +102,27 @@
     height: 200px;
     font-family: monospace;
     max-width: 100%; /* Limit width for better readability */
+    color: white;
     background: black;
+    border: 1px solid white;
+    padding: 5px;
+  }
+
+  #uploadedSound, .divObjectWhoCares {
+    margin-top: 10px;
     color: white;
   }
 
+  #inputSpeed {
+    width: 100px;
+    color: white;
+    background: black;
+    border: 1px solid white;
+    padding: 5px;
+  }
+
   .playButton {
+    margin-top: 10px;
     background-color: #4caf50;
     color: white;
     padding: 10px 20px;
