@@ -56,10 +56,10 @@ export function typeWriter(
             if ((!/\s/.test(char)) || char === "*") {
                 soundBox();
             }
-            // Store the timeout ID so it can be cleared if needed
+            //write timeoutID
             typeWriterTimeouts[elementId] = window.setTimeout(type, speed);
         } else {
-            // Clean up after finishing
+            //clear
             typeWriterTimeouts[elementId] = undefined;
         }
     }
